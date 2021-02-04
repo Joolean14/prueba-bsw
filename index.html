@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TCC</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <img class="logo" src="logo-tcc.png" alt="logo tcc" />
+        <div class="navbar-links-container">
+            <a class="navbar-link" href="">CARGA MASIVA</a>
+            <a class="navbar-link" href="">INICIO</a>
+            <a class="navbar-link" href="">CANALES</a>
+            <button class="navbar-btn">ACCEDER</button>
+        </div>
+    </nav>
+
+    <article class="article">
+        <svg class="svg" width="800" height="350">
+            <rect width="800" height="350" style="fill:rgb(48, 49, 51)" />
+        </svg> 
+        <div>
+            <h4 class="date-text">Noviembre 30, 2020</h4>
+            <h1 class="title">Design Lessons From My First Crypto Trading Bot</h1>
+        </div>
+        <p>
+            I recently wrote my first cryptocurrency trading bot. I started by playing
+            with historical prices for Bitcoin at ten minute intervals — I loaded them
+            into Python Pandas dataframes and ran some si-mulations, buying low and
+            selling high. It looked great! The code was simple, too — I figured it
+            wouldn’t take more than a few hours to bolt on some robin_stock functions
+            and go to town. I was wrong. Here’s what I learned as I went — perhaps it
+            will save you some time.
+        </p>
+
+        <h2 class="subtitle">Trading in simulation is simpler than trading in real life</h2>
+
+        <p>
+            When you simulate trades, you are probably making some assumptions. Your
+            program decides to buy or sell at the price at that moment in time, and it
+            succeeds, every time. Your simulation racks up the profit!
+            <br></br>
+            Reality isn’t
+            quite as easy. Actual trades take a little time, and the price is
+            changing. When your bot is trading live, sometimes only part of your order
+            will complete before the price shifts significantly. It may not even
+            complete any of the order. I refer to this as a “swing and miss”. Your bot
+            needs to handle these situations gracefully. I opted to save the order
+            transaction number and check the re-sults every so often — if, after a
+            hour, it didn’t result in a buy of coin, the bot cancelled the buy order
+            and tried again.
+        </p>
+
+        <div class="quote-container">
+            <p class="quote">In simulation, all your orders complete — in real life, you need to check for partial
+                completion or
+                missing the order entirely.</p>
+        </div>
+
+        <h2 class="subtitle">Limit buys and sells are your friend</h2>
+        <p>When you trade live, you need to issue your buys and sells as either a limit order or market order. With a
+            market order, the transaction will be completed at whatever the going rate is. That’s bad. Be careful with
+            that, because that price can MOVE in a matter of seconds. That’s why you have a bot in the first place! I
+            chose to place my orders as limit transactions, so that if the price moved dra-matically, it wouldn’t buy or
+            sell at a different price than I had intended.</p>
+
+
+        <div class="card">
+            <div class="profile-container">
+                <svg class="svg" width="80" height="80">
+                    <rect width="80" height="80" style="fill:rgb(48, 49, 51)" />
+                </svg> 
+                <h4 class="profile-text"><span>Escrito por:</span><br>Mariana Gómez</h4>
+            </div>
+            <div class="social-icons-container">
+                <i class="fab fa-twitter-square"></i>
+                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-linkedin"></i>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="articulo-title">Artículos relacionados</h2>
+            <hr>
+            <div class="mini-card-container">
+                <div class="mini-card">
+                    <svg class="svg" width="250" height="150">
+                        <rect width="250" height="150" style="fill:rgb(48, 49, 51)" />
+                    </svg> 
+                    <div class="mini-card-text">
+                        <h4 class="date-text">Noviembre 30, 2020</h4>
+                        <p>Design Lessons From My First Crypto Trading Bot</p>
+                    </div>
+                </div>
+                <div class="mini-card">
+                    <svg class="svg" width="250" height="150">
+                        <rect width="250" height="150" style="fill:rgb(48, 49, 51)" />
+                    </svg> 
+                    <div class="mini-card-text">
+                        <h4 class="date-text">Noviembre 30, 2020</h4>
+                        <p>Design Lessons From My First Crypto Trading Bot</p>
+                    </div>
+                </div>
+                <div class="mini-card">
+                    <svg class="svg" width="250" height="150">
+                        <rect width="250" height="150" style="fill:rgb(48, 49, 51)" />
+                    </svg> 
+                    <div class="mini-card-text">
+                        <h4 class="date-text">Noviembre 30, 2020</h4>
+                        <p>Design Lessons From My First Crypto Trading Bot</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <img class="logo" src="logo-tcc.png" alt="logo tcc" />
+    </footer>
+
+    <script src="https://kit.fontawesome.com/98ca127883.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
